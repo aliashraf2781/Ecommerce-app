@@ -89,7 +89,7 @@ export default function Products() {
                 </div>
             </div>
 
-            {data?.length > 0 ? <ProductList products={data} /> : isLoading ? <SkeletonLoader isLoading={isLoading}><ProductList products={data} /></SkeletonLoader> : <div className='text-5xl text-center py-14'>No products available</div>}
+            {data?.length > 0 ? <ProductList products={data} /> : isLoading ? <SkeletonLoader isLoading={isLoading}><ProductList products={data} /></SkeletonLoader> : <div className='text-5xl text-center py-14 text-dark'>No products available</div>}
 
 
             <div className="flex justify-center items-center gap-2 mt-6">
