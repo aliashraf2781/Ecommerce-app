@@ -6,6 +6,7 @@ import { useFilteredProducts } from '../hooks/useFilteredProducts'
 
 export default function Home() {
     const { data, isLoading } = useFilteredProducts({})
+    console.log(data, isLoading)
     return (
         <main className='bg-background'>
             <MainSlider />

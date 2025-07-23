@@ -5,7 +5,7 @@ const CartPage = () => {
     const { cart, removeFromCart, totalPrice } = useCart();
 
     return (
-        <div className="container min-h-[50vh]my-8">
+        <div className="container min-h-[50vh] bg-background py-8">
             <h1 className="text-xl font-bold mb-4">سلة المشتريات</h1>
 
             {cart.length === 0 ? (
