@@ -6,7 +6,7 @@ import useTheme from '../../../hooks/useTheme'
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const { cart } = useCart()
-    const { theme, toggleTheme } = useTheme()
+    const { dark, toggleTheme } = useTheme()
 
 
     return (
@@ -40,7 +40,7 @@ export default function Header() {
                         onClick={toggleTheme}
                         className="text-primary bg-light  hover:text-dark transition-colors"
                     >
-                        {theme === 'light' ? <FaMoon size={18} /> : <FaSun size={18} />}
+                        {!dark ? <FaMoon size={18} /> : <FaSun size={18} />}
                     </button>
 
                     <NavLink to="/cart" className="relative">

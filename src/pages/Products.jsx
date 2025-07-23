@@ -2,37 +2,26 @@ import { useState } from 'react';
 import ProductList from '../components/Product/ProductList'
 import { useFilteredProducts } from '../hooks/useFilteredProducts';
 import useCategories from '../hooks/useCategories';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'
+import SkeletonLoader from './../components/Skeleton/SkeletonLoader';
 export default function Products() {
     const { data: categories, isLoading: categoriesLoading } = useCategories();
     const [filters, setFilters] = useState({
         category: "",
         minPrice: 0,
-        maxPrice: 1000,
+        maxPrice: null,
         sortBy: '',
         sortOrder: '',
     });
 
     const { data, isLoading } = useFilteredProducts(filters);
 
-    if (isLoading) {
-        return (
-            <SkeletonTheme baseColor="#f0f0f0" highlightColor="#e0e0e0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-                    {Array.from({ length: 9 }).map((_, index) => (
-                        <Skeleton key={index} height={200} />
-                    ))}
-                </div>
-            </SkeletonTheme>
-        );
-    }
+
     return (
         <main className='bg-background p-4 text-dark'>
             <div className="bg-light  p-4  shadow mb-6">
-                <div className="grid md:grid-cols-4 gap-4">
+                <div className="grid md:grid-cols-5 gap-4">
                     <div>
-                        <label className="block mb-1 text-sm font-medium text-gray-700">الفئة</label>
+                        <label className="block mb-1 text-sm font-medium text-dark">الفئة</label>
                         <select
                             onChange={(e) => setFilters(prev => ({ ...prev, category: e.target.value }))}
                             className="w-full border border-gray-300 rounded px-3 py-2"
@@ -81,10 +70,26 @@ export default function Products() {
                             className="w-full border border-gray-300 rounded px-3 py-2"
                         />
                     </div>
+
+                    {/* sort */}
+                    <div>
+                        <label className="block mb-1 text-sm font-medium text-dark">الفئة</label>
+                        <select
+                            onChange={(e) => setFilters(prev => ({ ...prev, sortBy: e.target.value }))}
+                            className="w-full border border-gray-300 rounded px-3 py-2"
+                        >
+                            <option value="">الفرز حسب</option>
+                            <option value="price">السعر</option>
+                            <option value="rating">التقييم</option>
+                            <option value="name">الاسم</option>
+                        </select>
+                    </div>
+
                 </div>
             </div>
-            {data.length>0 ? <ProductList products={data} isLoading={isLoading} /> : <h1>Not found</h1>}
-            
+
+            {data?.length > 0 ? <ProductList products={data} /> : isLoading ? <SkeletonLoader isLoading={isLoading}><ProductList products={data} /></SkeletonLoader> : <div>No products available</div>}
+
 
             <div className="flex justify-center items-center gap-2 mt-6">
                 <button

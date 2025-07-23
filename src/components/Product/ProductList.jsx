@@ -1,12 +1,11 @@
 import React from 'react'
-// import useProducts from '../../hooks/useProducts';
+
 import ProductCard from './ProductCard';
 
 import useCart from '../../hooks/useCart';
-export default function ProductList({products, isLoading}) {
+export default function ProductList({products}) {
     const { addToCart, loading } = useCart();
 
-    if (isLoading) return <p>جاري التحميل...</p>;
 
     return (
         <section className="grid grid-cols-1 sm:grid-cols-3  gap-4 container mx-auto py-8">

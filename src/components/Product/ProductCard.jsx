@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar, FaRegStar, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, onClick }) => {
+const ProductCard = ({ product, onClick, loading }) => {
     const {
         nameEn,
         price,
@@ -65,7 +65,7 @@ const ProductCard = ({ product, onClick }) => {
                         </span>
                         <button
                             className="bg-primary text-light px-4 py-3 text-lg rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition cursor-pointer"
-                            disabled={!inStock}
+                            disabled={!inStock || loading}
                             onClick={(e) => {
                                 e.preventDefault();
                                 onClick(product);
