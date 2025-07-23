@@ -11,6 +11,7 @@ export default function Products() {
         maxPrice: null,
         sortBy: '',
         sortOrder: '',
+        page: 1,
     });
 
     const { data, isLoading } = useFilteredProducts(filters);
@@ -18,7 +19,7 @@ export default function Products() {
 
     return (
         <main className='bg-background p-4 text-dark'>
-            <div className="bg-light  p-4  shadow mb-6">
+            <div className="bg-light p-4 py-10 shadow mb-6">
                 <div className="grid md:grid-cols-5 gap-4">
                     <div>
                         <label className="block mb-1 text-sm font-medium text-dark">الفئة</label>
@@ -88,7 +89,7 @@ export default function Products() {
                 </div>
             </div>
 
-            {data?.length > 0 ? <ProductList products={data} /> : isLoading ? <SkeletonLoader isLoading={isLoading}><ProductList products={data} /></SkeletonLoader> : <div>No products available</div>}
+            {data?.length > 0 ? <ProductList products={data} /> : isLoading ? <SkeletonLoader isLoading={isLoading}><ProductList products={data} /></SkeletonLoader> : <div className='text-5xl text-center py-14'>No products available</div>}
 
 
             <div className="flex justify-center items-center gap-2 mt-6">
