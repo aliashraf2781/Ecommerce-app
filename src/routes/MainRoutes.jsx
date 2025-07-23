@@ -8,7 +8,7 @@ import NotFound from "../pages/NotFound";
 import CategoryPage from "../pages/CategoryPage";
 
 
-const routes = createBrowserRouter([
+const MainRoutes = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
@@ -46,4 +46,4 @@ const routes = createBrowserRouter([
 ]);
 
 
-export default routes;
+export default MainRoutes;
