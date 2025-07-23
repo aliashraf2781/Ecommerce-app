@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useFilteredProducts } from "../hooks/useFilteredProducts";
-// import Skeleton from "../components/Skeleton"; 
 import ProductList from "../components/Product/ProductList";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'

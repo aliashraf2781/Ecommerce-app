@@ -5,8 +5,8 @@ import useCart from '../../../hooks/useCart'
 import useTheme from '../../../hooks/useTheme'
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
-    const {cart} = useCart()
-    const {theme, toggleTheme} = useTheme()
+    const { cart } = useCart()
+    const { theme, toggleTheme } = useTheme()
 
 
     return (
@@ -45,10 +45,10 @@ export default function Header() {
 
                     <NavLink to="/cart" className="relative">
                         <FaShoppingCart size={20} className="text-primary" />
-                        {cart.length > 0 && 
-                        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center">
-                            {cart.length}
-                        </span>
+                        {cart.length > 0 &&
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center">
+                                {cart.length}
+                            </span>
                         }
                     </NavLink>
 

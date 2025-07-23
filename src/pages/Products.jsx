@@ -31,7 +31,6 @@ export default function Products() {
         <main className='bg-background p-4 text-dark'>
             <div className="bg-light  p-4  shadow mb-6">
                 <div className="grid md:grid-cols-4 gap-4">
-                    {/* تصفية بالفئة */}
                     <div>
                         <label className="block mb-1 text-sm font-medium text-gray-700">الفئة</label>
                         <select
@@ -53,7 +52,6 @@ export default function Products() {
                         </select>
                     </div>
 
-                    {/* السعر الأدنى */}
                     <div>
                         <label className="block mb-1 text-sm font-medium text-gray-700">أقل سعر</label>
                         <input
@@ -64,7 +62,6 @@ export default function Products() {
                         />
                     </div>
 
-                    {/* السعر الأعلى */}
                     <div>
                         <label className="block mb-1 text-sm font-medium text-gray-700">أعلى سعر</label>
                         <input
