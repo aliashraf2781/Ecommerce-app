@@ -7,11 +7,11 @@ Features full product browsing, cart functionality, filtering, and a theme switc
 
 ## 🔗 Live Demo
 
-👉 [View Site](https://your-demo-url.netlify.app)
+👉 [View Site](https://ecommerce-zehabwaawda.netlify.app)
 
 ## 📁 GitHub Repository
 
-🔗 [Source Code](https://github.com/your-username/your-repo)
+🔗 [Source Code](https://github.com/aliashraf2781/Ecommerce-app.git)
 
 ---
 
@@ -20,7 +20,7 @@ Features full product browsing, cart functionality, filtering, and a theme switc
 To run the project locally:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/aliashraf2781/Ecommerce-app.git
 cd your-repo
 npm install
 npm run dev
@@ -66,6 +66,7 @@ Make sure your backend API is running at the expected URL (configured inside `ax
 src/
 ├── components/
 ├── pages/
+├── routes/
 ├── hooks/
 ├── context/
 ├── libs/
