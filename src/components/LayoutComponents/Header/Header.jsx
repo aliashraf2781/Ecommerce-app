@@ -10,7 +10,7 @@ export default function Header() {
 
 
     return (
-        <header className="bg-light text-dark shadow-md sticky top-0 z-50 container">
+        <header className="bg-light text-dark shadow-md sticky top-0 z-50 px-8">
             <nav className="mx-auto flex justify-between">
 
                 <div className="text-6xl py-2  text-primary font-light font-cairo">

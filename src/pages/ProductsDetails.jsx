@@ -19,7 +19,6 @@ export default function ProductDetails() {
                 console.error('Error fetching product:', error)
             }
         }
-
         fetchProduct()
     }, [id])
     const handleAddToCart = () => {
@@ -30,7 +29,7 @@ export default function ProductDetails() {
     if (!product) return <div className="p-4 text-center">جاري التحميل...</div>
 
     return (
-        <div className="  container grid md:grid-cols-2 gap-8 py-8 bg-background">
+        <div className="grid md:grid-cols-2 gap-8 py-8 px-8 bg-background">
             <div className="space-y-4">
                 <img src={product.image} alt={product.name} className="w-full rounded-2xl shadow-md" />
                 <div className="flex gap-2">

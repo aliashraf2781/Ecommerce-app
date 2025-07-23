@@ -1,6 +1,6 @@
 import React from "react";
 import { FaStar, FaRegStar, FaShoppingCart } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, onClick }) => {
     const {
@@ -31,9 +31,8 @@ const ProductCard = ({ product, onClick }) => {
     };
 
     return (
-        <div className="bg-light text-dark rounded-2xl shadow-md  hover:shadow-xl transition flex flex-col min-h-[420px]">
-
-            <NavLink to={`/products/${product.id}`} >
+        <div className="bg-light text-dark rounded-2xl shadow-md hover:shadow-xl transition flex flex-col justify-between h-[450px]">
+            <Link to={`/products/${product.id}`} className="flex flex-col h-full">
                 <div className="w-full h-48 rounded-t-xl overflow-hidden">
                     <img
                         src={image}
@@ -42,37 +41,41 @@ const ProductCard = ({ product, onClick }) => {
                     />
                 </div>
 
-                <div className="flex-1 flex flex-col justify-between p-4">
-                    <div className="mb-2">
-                        <h3 className="text-lg font-bold text-dark">{nameEn}</h3>
-                        <p className="text-xs text-gray-400 mt-1">Brand: {brand}</p>
+                <div className="flex flex-col flex-1 justify-between p-4">
+                    <div className="flex flex-col flex-1 justify-between">
+                        <div className="mb-2 min-h-[60px]">
+                            <h3 className="text-lg font-bold text-dark line-clamp-2">{nameEn}</h3>
+                            <p className="text-xs text-gray-400 mt-1">Brand: {brand}</p>
+                        </div>
+
+                        <div className="flex items-center gap-2 mb-2">
+                            {renderStars()}
+                            <span className="text-xs text-gray-500">{reviewCount}</span>
+                        </div>
+
+                        <div className="mb-3">
+                            <span className="text-[--color-primary] text-xl font-bold">{price.toFixed(2)} EGP</span>
+                            <span className="line-through text-sm text-gray-400 ml-2">{originalPrice.toFixed(2)} EGP</span>
+                        </div>
                     </div>
 
-                    <div className="flex items-center gap-2 mb-2">
-                        {renderStars()}
-                        <span className="text-xs text-gray-500">{reviewCount}</span>
+                    <div className="flex items-center justify-between mt-4">
+                        <span className={`text-sm ${inStock ? "text-green-600" : "text-red-500"}`}>
+                            {inStock ? "متوفر" : "غير متوفر"}
+                        </span>
+                        <button
+                            className="bg-primary text-light px-4 py-3 text-lg rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition cursor-pointer"
+                            disabled={!inStock}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                onClick(product);
+                            }}
+                        >
+                            <FaShoppingCart />
+                        </button>
                     </div>
-
-                    <div className="mb-3">
-                        <span className="text-[--color-primary] text-xl font-bold">{price.toFixed(2)} EGP</span>
-                        <span className="line-through text-sm text-gray-400 ml-2">{originalPrice.toFixed(2)} EGP</span>
-
-                    </div>
-
                 </div>
-            </NavLink>
-            <div className="flex items-center justify-between mt-auto p-4">
-                <span className={`text-sm ${inStock ? "text-green-600" : "text-red-500"}`}>
-                    {inStock ? "متوفر" : "غير متوفر"}
-                </span>
-                <button
-                    className="bg-primary text-light px-4 py-3 text-lg rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition cursor-pointer"
-                    disabled={!inStock}
-                    onClick={() => onClick(product)}
-                >
-                    <FaShoppingCart />
-                </button>
-            </div>
+            </Link>
         </div>
 
     );
